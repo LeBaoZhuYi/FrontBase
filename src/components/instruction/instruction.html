@@ -1,0 +1,29 @@
+<div v-if='lang'>
+    <h2><a href='https://cn.vuejs.org/v2/guide/' target='_blank'>{{lang.instruction.framework}}：Vue2.0</a></h2>
+    <br>
+    <h2><a href='https://www.iviewui.com/components/grid' target='_blank'>UI：iView Guid</a></h2>
+    <br>
+    <h2>README.md</h2>
+    <pre>
+        <strong>{{lang.instruction.install}}</strong>
+        sh install.sh
+    </pre>
+    <pre>
+        <strong>{{lang.instruction.debug}}</strong>
+        sh debug.sh
+        {{lang.instruction.proxy}}:   config/webpack.dev.js -> devServer -> proxy
+    </pre>
+
+    <pre>
+        <strong>{{lang.instruction.ebugCas}}</strong>
+        sh debug.sh -cas
+        <strong>add file: ./config/.debugrc</strong>
+        {
+            "username": "",
+            "password": "",
+            "ip": "",
+            "port": "",
+            "target": ''
+        }
+    </pre>
+</div>

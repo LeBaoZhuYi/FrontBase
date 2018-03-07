@@ -1,0 +1,20 @@
+<div absplanAmount>
+    <Modal v-model="modalShow" :title="title" :closable="false" :mask-closable="false">
+        <Form ref="model" :model="model" :rules="rules" :label-width="100">
+            <FormItem :label="lang.absplan.amount" prop="amount">
+                <Input disabled v-model="model.amount"></Input>
+            </FormItem>
+            <FormItem :label="lang.absplan.adjustAmount" prop="adjustAmount">
+                <Input v-model="model.adjustAmount" number></Input>
+            </FormItem>
+            <FormItem label="Plan Id" prop="planId">
+                <Input disabled v-model="model.planId"></Input>
+            </FormItem>
+            <FormItem>
+                <Button type="primary" @click="submit('model')" :loading="submitLoading">{{lang.global.submit}}</Button>
+                <Button type="ghost" @click="close" style="margin-left: 8px">{{lang.global.close}}</Button>
+            </FormItem>
+        </Form>
+        <div slot="footer"></div>
+    </Modal>
+</div>

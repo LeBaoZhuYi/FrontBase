@@ -1,0 +1,26 @@
+<div absplan v-if='lang'>
+    <Button @click='createModalShow=true' type="primary">{{lang.global.add}}</Button>
+
+    <div style='max-height: calc(100% - 84px);overflow: auto' class='b10 t10'>
+        <Table stripe border :columns="columns" :data="data" :loading="tableLoading"></Table>
+    </div>
+
+    <Page style='text-align: right' :total="total" @on-change='change'></Page>
+
+    <create
+        v-if='createModalShow'
+        :lang='lang'
+        :redirect='redirect'
+        :show='createModalShow'
+        @close='createModalShow=false'
+        @success='getData'></create>
+
+    <amount
+        v-if='amountModalShow'
+        :lang='lang'
+        :redirect='redirect'
+        :show='amountModalShow'
+        @close='amountModalShow=false'
+        @success='getData'
+        :data='amountData'></amount>
+</div>

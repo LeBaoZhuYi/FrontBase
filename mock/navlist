@@ -1,0 +1,26 @@
+{
+    "data": [
+
+        {
+            "title": "Instruction",
+            "name": "0",
+            "icon": "ios-navigate",
+            "children": [
+                {
+                    "title": "iView",
+                    "icon": "navigate",
+                    "parent": "0",
+                    "name": "/instruction"
+                }
+            ]
+        },
+
+        {
+            "title": "转让计划",
+            "lang": "absplan.title",
+            "name": "/abs/abs_plan",
+            "icon": "ionic",
+            "children": []
+        }
+    ]
+}

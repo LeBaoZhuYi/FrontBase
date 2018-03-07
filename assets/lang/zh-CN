@@ -1,0 +1,40 @@
+{
+    "i": {
+        "locale": "zh-CN",
+        "test": "测试",
+        "global": {
+            "title": "账务系统",
+            "error": "发生错误",
+            "new": "新建",
+            "add": "添加",
+            "submit": "提交",
+            "delete": "删除",
+            "close": "关闭",
+            "update": "更新"
+        },
+        "instruction": {
+            "framework": "前端框架",
+            "install": "安装",
+            "debug": "调试",
+            "debugCas": "模拟登录(CAS)调试",
+            "proxy": "代理"
+        },
+        "absplan": {
+            "title": "转让计划",
+            "adjustAmount": "调整资产池",
+            "update": "更新task信息",
+            "amount": "金额(分)",
+            "startTime": "开始时间",
+            "endTime": "结束时间",
+            "transferEndTime": "转让结束时间",
+            "transferRule": "transferRule",
+            "seller": "Seller",
+            "buyer": "Buyer",
+            "tradeCode": "tradeCode",
+            "startTime": "开始时间",
+            "transferEndTime": "transferEndTime",
+            "endTime": "结束时间",
+            "desc": "备注"
+        }
+    }
+}

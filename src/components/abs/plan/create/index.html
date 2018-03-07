@@ -1,0 +1,16 @@
+<div absplanCreate>
+    <Modal v-model="modalShow" :title="title" :closable="false" :mask-closable="false">
+        <Form ref="model" :model="model" :rules="rules" :label-width="100">
+            <FormItem :label="lang.absplan.tradeCode" prop="tradeCode">
+                <Select v-model="model.tradeCode">
+                    <Option v-for="item in codeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                </Select>
+            </FormItem>
+            <FormItem>
+                <Button type="primary" @click="submit('model')" :loading="submitLoading">{{lang.global.submit}}</Button>
+                <Button type="ghost" @click="close" style="margin-left: 8px">{{lang.global.close}}</Button>
+            </FormItem>           
+        </Form>
+        <div slot="footer"></div>
+    </Modal>
+</div>

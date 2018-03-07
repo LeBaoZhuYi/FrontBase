@@ -1,0 +1,69 @@
+<div app>
+    <Layout style='height: 100%;'>
+        <Sider ref="side" hide-trigger collapsible :collapsed-width="78" v-model="isCollapsed">
+            <Menu :class="menuitemClasses" v-if='navs.length' ref='menu' :active-name='activePath' theme='dark' width='auto' :open-names='openNav' @on-select='goto' >
+                <MenuItem name='1-1' style='padding: 0;height: 60px;'>
+                    <a href='' class='logo' v-bind:class='{clogo: isCollapsed, nlogo: !isCollapsed}'>
+                        <img src="../../assets/png/logo.jpg" width="100%" height="100%"/>
+                        <span style='width: auto;color: #fff;font-size: 26px;' v-show='!isCollapsed'>{{lang.global.title}}</span>
+                    </a>
+                </MenuItem>
+
+                <div v-show='isCollapsed' v-for='nav in navs'>
+                    <Dropdown placement="right-start" @on-click='collapseGoto'>
+                        <DropdownItem>
+                            <Icon :type='nav.icon'></Icon>
+                        </DropdownItem>
+                        <DropdownMenu slot="list">
+                            <div v-if='nav.children && nav.children.length'>
+                                <DropdownItem v-for='child in nav.children' :name='child.name'>
+                                    <Icon :type='child.icon'></Icon>
+                                    <span>{{setLocale('title', child)}}</span>
+                                </DropdownItem>
+                            </div>
+                            <div v-else>
+                                <DropdownItem :name='nav.name'>
+                                    <Icon :type='nav.icon'></Icon>
+                                    <span>{{setLocale('title', nav)}}</span>
+                                </DropdownItem>
+                            </div>
+                        </DropdownMenu>
+                    </Dropdown>
+                </div>
+
+                <div v-show='!isCollapsed'>
+                    <div v-for='nav in navs'>
+                        <Submenu v-if='nav.children && nav.children.length' :name='nav.name' :key="nav.name">
+                            <template slot='title'>
+                                <Icon :type='nav.icon'></Icon>
+                                <span>{{setLocale('title', nav)}}</span>
+                            </template>
+                            <MenuItem v-for='child in nav.children' :key="child.name" :name='child.name'>
+                                <Icon :type='child.icon'></Icon>
+                                <span>{{setLocale('title', child)}}</span>
+                            </MenuItem>
+                        </Submenu>
+                        <MenuItem v-if='!nav.children || !nav.children.length' :key="nav.name" :name='nav.name'>
+                            <Icon :type='nav.icon'></Icon>
+                            <span>{{setLocale('title', nav)}}</span>
+                        </MenuItem>
+                    </div>
+                </div>
+            </Menu>
+        </Sider>
+        <Layout>
+            <Header :style="{padding: 0}" class="layout-header-bar layout-header">
+                <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px 0'}" type="navicon-round" size="24"></Icon>
+                <h2>{{mainTitle}}</h2>
+            </Header>
+            <Content :style="{margin: '20px', background: '#fff', minHeight: '260px', overflow: 'auto'}">
+                <div class='layout-content-main' id="data-list-content">
+                    <router-view :redirect='redirect' :lang='lang'></router-view>
+                </div>
+            </Content>
+            <div class='layout-copy'>
+                2015-2017 &copy; 小米金融
+            </div>
+        </Layout>
+    </Layout>
+</div>
